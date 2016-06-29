@@ -3926,9 +3926,9 @@ a.subdued {
     border-color: #b2b2b2;
     background-color: #f8f8f8;
     background-image: linear-gradient(0deg, #b2b2b2, #b2b2b2 50%, transparent 50%);
-    color: #444;}
+    color: #444; }
     .bar.bar-stable .title {
-      color: #444;}
+      color: #444; }
     .bar.bar-stable.bar-footer {
       background-image: linear-gradient(180deg, #b2b2b2, #b2b2b2 50%, transparent 50%); }
   .bar.bar-positive {
@@ -9013,7 +9013,7 @@ a.button {
     border-color: #6b46e5; }
   .button-bar.bar-dark > .button {
     border-color: #111; }
-    
+
 .button-bar > .button {
   -webkit-box-flex: 1;
   -webkit-flex: 1;

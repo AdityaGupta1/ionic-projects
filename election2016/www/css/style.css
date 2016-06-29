@@ -1,8 +1,8 @@
 table, th, td {
-    border: 1px solid black;
+	border: 1px solid black;
 }
 th, td {
-    padding: 5px;
+	padding: 5px;
 }
 img.home-button {
 	position: absolute;
@@ -17,4 +17,10 @@ div.twitter {
 }
 div.rss {
 	padding: 10px;
+}
+.button-bar.padded {
+	padding: 20px;
+}
+p,h2,h3,h4,h5,h6{
+	padding:10px;
 }
