@@ -1,0 +1,14 @@
+= ionic-projects
+
+== Overview
+
+This repository is for all my projects using the Ionic framework. The main app right now is '`election2016`', but there are other ones as well.
+
+== What I learned
+
+* Some CSS attributes (like `position` and `float`)
+* Some fundamental JavaScript concepts (`function`, `var`, etc.)
+* `$http.get()`
+* Asynchronous processes in JavaScript
+* Database creation and manipulation with Firebase and AngularFire
+* Three main parts of an application (UI, services, data)
