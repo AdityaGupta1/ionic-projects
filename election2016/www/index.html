@@ -77,11 +77,12 @@
       <h2>Vote!</h2>
       <h4>Vote in a poll to see which candidate is doing better!</h4>
       <center><div class="button-bar padded">
-        <a class="button button-assertive" ng-click="voteTrump()">Donald Trump</a>
-        <a class="button button-positive" ng-click="voteClinton()">Hillary Clinton</a>
+        <a class="button button-assertive" ng-click="voteTrump()" id="voteTrump">Donald Trump</a>
+        <div id="cantVote"></div>
+        <a class="button button-positive" ng-click="voteClinton()" id="voteClinton">Hillary Clinton</a>
       </div></center>
       <p>
-        <center><a href="sources.html">Sources</a></center>
+        <center><a href="sources.html" id="sources">Sources</a></center>
       </p>
     </ion-content>
   </ion-pane>
