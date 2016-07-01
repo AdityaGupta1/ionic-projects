@@ -3,30 +3,30 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-  <title>Election 2016 - Donald Trump</title>
+  <title>Election 2016</title>
 
   <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+  <link href="css/angular-chart.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
+  
+  <!-- ionic/angularjs js -->
+  <script src="lib/ionic/js/ionic.bundle.js"></script>
 
-<!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-<link href="css/ionic.app.css" rel="stylesheet">
--->
+  <!-- cordova script (this will be a 404 during development) -->
+  <script src="cordova.js"></script>
 
-<!-- ionic/angularjs js -->
-<script src="lib/ionic/js/ionic.bundle.js"></script>
+  <!-- Firebase -->
+  <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
 
-<!-- cordova script (this will be a 404 during development) -->
-<script src="cordova.js"></script>
+  <!-- AngularFire -->
+  <script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
 
-<!-- Firebase -->
-<script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+  <!-- your app's js -->
+  <script src="js/app.js"></script>
 
-<!-- AngularFire -->
-<script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
-
-<!-- your app's js -->
-<script src="js/app.js"></script>
-
+  <!-- Chart.js and Angular Chart -->
+  <script src="js/Chart.min.js"></script>
+  <script src="js/angular-chart.min.js"></script>
 </head>
 <body ng-app="starter">
   <ion-pane>
@@ -41,72 +41,72 @@
       <p>
         Donald J. Trump is a businessman from New York. He is in the real estate business and is worth more than 4 billion USD. He is the presumptive nominee for the Republican party in the upcoming election. Here are his stances on some important issues, as well as detailed information about the four characteristics on the home page (trustworthy, diplomatic, intelligent, experienced).
       </p>
-      <center><table style="width:65%">
-        <tr>
-          <td><b>Issue</b></td>
-          <td><b>Stance</b></td>
-        </tr>
-        <tr>
-          <td>Budget</td>
-          <td>Trump believes that the government must decrease spending to address deficit problems.</td>
-        </tr>
-        <tr>
-          <td>Climate Change</td>
-          <td>Trump thinks that climate change is a hoax and has asserted this through Twitter and on Fox News.</td>
-        </tr>
-        <tr>
-          <td>Entitlements</td>
-          <td>Trump does not want to cut Social Security or Medicare benefits; he says that the money for these will come from economic growth.</td>
-        </tr>
-        <tr>
-          <td>Gun Control</td>
-          <td>Trump wants some moderate restrictions, like a ban on assault weapons and a slightly longer waiting period to purchase firearms.</td>
-        </tr>
-        <tr>
-          <td>Immigration and Refugees</td>
-          <td>Trump's stance on this issue is very extreme. He wants to deport all undocumented individuals, freeze green cards, and ban all Muslims from entering the U.S., at least until the problem of Islamic extremism is solved. He also wants to build a wall at the Mexican-American border, and would pay for it partly with money seized from illegal immigrants from Mexico.</td>
-        </tr>
-        <tr>
-          <td>Obamacare</td>
-          <td>Trump believes that Obamacare is a catastrophe and that it should be replaced government-run universal healthcare.</td>
-        </tr>
-        <tr>
-          <td>Social Issues</td>
-          <td>Trump wants to ban abortion with exceptions for rape, incest, and the life of the mother. He also believes that marriage is strictly between a man and a woman.</td>
-        </tr>
-        <tr>
-          <td>Taxes</td>
-          <td>Trump wants to reduce the current 7 tax brackets down into 4. He also wants to signifcantly reduce income taxes for most Americans.</td>
-        </tr>
-        <tr>
-          <td>Iran and Israel</td>
-          <td>Trump thinks that the U.S. should have walked away from nuclear talks and has been critical of Obama's handling of the issue. He also wants to increase sanctions on Iran.</td>
-        </tr>
-        <tr>
-          <td>Islamic State and Iraq</td>
-          <td>Trump aims to send more U.S. troops to oil-producing/oil-selling areas controlled by Islamic State. He says the United States needs to look tougher and that its leaders should not broadcast their plans before using them.</td>
-        </tr>
-        <tr>
-          <td><b>Characteristic</b></td>
-          <td><b>Information</b></td>
-        </tr>
-        <tr>
-          <td>Trustworthiness</td>
-          <td>It's hard to tell whether or not Trump would actually follow through on some of his ideas - because, frankly, most of them are crazy. He might be saying those kinds of things only to become President, or he might actually believe in them. I don't think he would be able to use those ideas because he would have a hard time passing them through Senate and the House of Representatives.</td>
-        </tr>
-        <tr>
-          <td>Diplomatic</td>
-          <td>Trump is kind of, but not really, diplomatic. His stance on foreigeners is very aggressive - ranging from the wall at the border to freezing green cards to deporting all undocumented individuals. However, he has a non-interventionist foreign policy, meaning that he does not want to associate the U.S. with other nations, and that he doesn't want to start any wars unless in direct self-defense. However, due to his questionable trustworthiness (see above row), he might not actually follow those ideas.</td>
-        </tr>
-        <tr>
-          <td>Intelligent</td>
-          <td>Trump does not seem to understand that his "solutions" would create more problems than they solve. Deporting all undocumented individuals would have a negative impact on some areas, like California, where immigrants count for a large part of manual labor. Ignoring climate change could lead to environmental problems in the U.S. Building a wall at the border would cause more deaths as people try to cross over - because they will still try.</td>
-        </tr>
-        <tr>
-          <td>Experienced</td>
-          <td>Trump doesn't have any political experience whatsoever, unlike his rival, Hillary Clinton.</td>
-        </tr>
-      </table></center>
+      <center><div style="width:80%">
+        <div class="row shaded">
+          <div class="col"><b>Issue</b></div>
+          <div class="col"><b>Stance</b></div>
+        </div>
+        <div class="row">
+          <div class="col">Budget</div>
+          <div class="col">Trump believes that the government must decrease spending to address deficit problems.</div>
+        </div>
+        <div class="row">
+          <div class="col">Climate Change</div>
+          <div class="col">Trump thinks that climate change is a hoax and has asserted this through Twitter and on Fox News.</div>
+        </div>
+        <div class="row">
+          <div class="col">Entitlements</div>
+          <div class="col">Trump does not want to cut Social Security or Medicare benefits; he says that the money for these will come from economic growth.</div>
+        </div>
+        <div class="row">
+          <div class="col">Gun Control</div>
+          <div class="col">Trump wants some moderate restrictions, like a ban on assault weapons and a slightly longer waiting period to purchase firearms.</div>
+        </div>
+        <div class="row">
+          <div class="col">Immigration and Refugees</div>
+          <div class="col">Trump's stance on this issue is very extreme. He wants to deport all undocumented individuals, freeze green cards, and ban all Muslims from entering the U.S., at least until the problem of Islamic extremism is solved. He also wants to build a wall at the Mexican-American border, and would pay for it partly with money seized from illegal immigrants from Mexico.</div>
+        </div>
+        <div class="row">
+          <div class="col">Obamacare</div>
+          <div class="col">Trump believes that Obamacare is a catastrophe and that it should be replaced government-run universal healthcare.</div>
+        </div>
+        <div class="row">
+          <div class="col">Social Issues</div>
+          <div class="col">Trump wants to ban abortion with exceptions for rape, incest, and the life of the mother. He also believes that marriage is strictly between a man and a woman.</div>
+        </div>
+        <div class="row">
+          <div class="col">Taxes</div>
+          <div class="col">Trump wants to reduce the current 7 tax brackets down into 4. He also wants to signifcantly reduce income taxes for most Americans.</div>
+        </div>
+        <div class="row">
+          <div class="col">Iran and Israel</div>
+          <div class="col">Trump thinks that the U.S. should have walked away from nuclear talks and has been critical of Obama's handling of the issue. He also wants to increase sanctions on Iran.</div>
+        </div>
+        <div class="row">
+          <div class="col">Islamic State and Iraq</div>
+          <div class="col">Trump aims to send more U.S. troops to oil-producing/oil-selling areas controlled by Islamic State. He says the United States needs to look tougher and that its leaders should not broadcast their plans before using them.</div>
+        </div>
+        <div class="row shaded">
+          <div class="col"><b>Characteristic</b></div>
+          <div class="col"><b>Information</b></div>
+        </div>
+        <div class="row">
+          <div class="col">Trustworthiness</div>
+          <div class="col">It's hard to tell whether or not Trump would actually follow through on some of his ideas - because, frankly, most of them are crazy. He might be saying those kinds of things only to become President, or he might actually believe in them. I don't think he would be able to use those ideas because he would have a hard time passing them through Senate and the House of Representatives.</div>
+        </div>
+        <div class="row">
+          <div class="col">Diplomatic</div>
+          <div class="col">Trump is kind of, but not really, diplomatic. His stance on foreigeners is very aggressive - ranging from the wall at the border to freezing green cards to deporting all undocumented individuals. However, he has a non-interventionist foreign policy, meaning that he does not want to associate the U.S. with other nations, and that he doesn't want to start any wars unless in direct self-defense. However, due to his questionable trustworthiness (see above row), he might not actually follow those ideas.</div>
+        </div>
+        <div class="row">
+          <div class="col">Intelligent</div>
+          <div class="col">Trump does not seem to understand that his "solutions" would create more problems than they solve. Deporting all undocumented individuals would have a negative impact on some areas, like California, where immigrants count for a large part of manual labor. Ignoring climate change could lead to environmental problems in the U.S. Building a wall at the border would cause more deaths as people try to cross over - because they will still try.</div>
+        </div>
+        <div class="row">
+          <div class="col">Experienced</div>
+          <div class="col">Trump doesn't have any political experience whatsoever, unlike his rival, Hillary Clinton.</div>
+        </div>
+      </div></center>
       <br>
       <p>
         Many of his ideas are very controversial, especially his thoughts on immigration and refugees. A lot of people are saying that he unjustly wants to punish many people for the bad deeds of a few (e.g. banning Muslims from entering the United States because of a few extremists). However, a lot of people believe in his ideas - espeically lower-class people and those who have never voted before.

@@ -1,4 +1,4 @@
-var election2016 = angular.module('starter', ['ionic', 'firebase']);
+var election2016 = angular.module('starter', ['ionic', 'firebase', 'chart.js']);
 var votesRef = new Firebase("https://election2016-efeae.firebaseio.com/votes");
 
 var trumpVotes = 0;
@@ -11,10 +11,33 @@ election2016.config(function($ionicConfigProvider) {
 
 election2016.factory("Votes", function($firebaseArray) {
 	return $firebaseArray(votesRef);
-})
+});
 
 election2016.controller("ListCtrl", function($scope, Votes, $http) {
 	$scope.votes = Votes;
+
+	$scope.refreshVotes = function() {
+		trumpVotes = 0;
+		clintonVotes = 0;
+
+		votesRef.orderByChild("vote").on("child_added", function(snapshot) {
+			if (snapshot.val().vote == "Trump") {
+				trumpVotes++;
+			} else {
+				clintonVotes++;
+			}
+		});
+
+		$scope.data = [
+		[String(trumpVotes), String(clintonVotes)]
+		];
+	}
+
+	$scope.labels = ["Donald Trump", "Hillary Clinton"];
+	$scope.series = ['Votes'];
+	$scope.data = [
+	[String(trumpVotes), String(clintonVotes)]
+	];
 
 	$scope.getIP = function() {
 		var json = 'http://ipv4.myexternalip.com/json';
@@ -44,33 +67,28 @@ election2016.controller("ListCtrl", function($scope, Votes, $http) {
 	}
 
 	$scope.displayData = function() {
-		trumpVotes = 0;
-		clintonVotes = 0;
+		$scope.refreshVotes();
 
-		votesRef.orderByChild("vote").on("child_added", function(snapshot) {
-			if (snapshot.val().vote == "Trump") {
-				trumpVotes++;
-			} else {
-				clintonVotes++;
-			}
-		});
-
-		var cantVote = document.createElement("div"); 
-		var newContent = document.createTextNode("Votes for Donald Trump: " + trumpVotes + "; Votes for Hillary Clinton: " + clintonVotes); 
-		var voteBar = document.getElementById("cantVote"); 
+		var newContent = document.createTextNode("Thanks for voting! See the results in the chart below:"); 
+		var voteBar = document.getElementById("afterVote"); 
 		if (voteBar.innerHTML.indexOf("You've") != -1) {
 			voteBar.innerHTML = ''; 
 		}
-		if (voteBar.innerHTML.indexOf("Votes") == -1) {
+		if (voteBar.innerHTML.indexOf("Thanks") == -1) {
 			voteBar.appendChild(newContent); 
 		}
+
+		var voteChart =  document.getElementById("bar");
+		var voteChartContent = voteChart.innerHTML;
+		voteChart.innerHTML = voteChartContent;
 	}
 
 	$scope.cantVote = function() {
-		var cantVote = document.createElement("div"); 
-		var newContent = document.createTextNode("You've already voted in this poll!"); 
-		var voteBar = document.getElementById("cantVote"); 
-		if (voteBar.innerHTML.indexOf("Votes") != -1) {
+		$scope.refreshVotes();
+
+		var newContent = document.createTextNode("You've already voted in this poll! See the results in the chart below:"); 
+		var voteBar = document.getElementById("afterVote"); 
+		if (voteBar.innerHTML.indexOf("Thanks") != -1) {
 			voteBar.innerHTML = '';
 		}
 		if (voteBar.innerHTML.indexOf("You've") == -1) {

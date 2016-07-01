@@ -21,6 +21,23 @@ div.rss {
 .button-bar.padded {
 	padding: 20px;
 }
-p,h2,h3,h4,h5,h6{
-	padding:10px;
+p, h2, h3, h4, h5, h6{
+	padding: 10px;
+}
+#vote-chart {
+	max-width: 65%;
+}
+.col.shaded, .shaded .col {
+	background-color:lightgrey;
+}
+.col {
+	border: solid 1px grey;
+	border-bottom-style: none;
+	border-right-style: none;
+}
+.col:last-child {
+	border-right: solid 1px grey;
+}
+.row:last-child .col {
+	border-bottom: solid 1px grey;
 }

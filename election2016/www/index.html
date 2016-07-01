@@ -6,6 +6,7 @@
   <title>Election 2016</title>
 
   <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+  <link href="css/angular-chart.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
   
   <!-- ionic/angularjs js -->
@@ -22,6 +23,10 @@
 
   <!-- your app's js -->
   <script src="js/app.js"></script>
+
+  <!-- Chart.js and Angular Chart -->
+  <script src="js/Chart.min.js"></script>
+  <script src="js/angular-chart.min.js"></script>
 </head>
 <body ng-app="starter" ng-controller="ListCtrl">
   <ion-pane>
@@ -35,29 +40,31 @@
       <p>
         <b>Election year.</b> Time to vote for the next leader of the United States of America. A leader who must be trustworthy, diplomatic, intelligent, and experienced. But there's a problem. None of the candidates this year have those qualities. Here's a quick overview of how they fare (in my opinion):
       </p>
-      <center><table style="width:65%">
-        <tr>
-          <td><b>Candidate</b></td>
-          <td><b>Trustworthy</b></td>
-          <td><b>Diplomatic</b></td>
-          <td><b>Intelligent</b></td>
-          <td><b>Experienced</b></td>
-        </tr>
-        <tr>
-          <td>Donald Trump</td>
-          <td>Probably not</td> 
-          <td>No</td>
-          <td>No</td>
-          <td>No</td>
-        </tr>
-        <tr>
-          <td>Hillary Clinton</td>
-          <td>No</td> 
-          <td>Yes</td>
-          <td>Maybe</td>
-          <td>Yes</td>
-        </tr>
-      </table></center>
+
+      <center><div style="width:65%">
+        <div class="row shaded">
+          <div class="col"><b>Candidate</b></div>
+          <div class="col"><b>Trustworthy</b></div>
+          <div class="col"><b>Diplomatic</b></div>
+          <div class="col"><b>Intelligent</b></div>
+          <div class="col"><b>Experienced</b></div>
+        </div>
+        <div class="row">
+          <div class="col"><b>Donald Trump</b></div>
+          <div class="col">Probably not</div>
+          <div class="col">No</div>
+          <div class="col">No</div>
+          <div class="col">No</div>
+        </div>
+        <div class="row">
+          <div class="col"><b>Hillary Clinton</b></div>
+          <div class="col">No</div>
+          <div class="col">Probably</div>
+          <div class="col">Maybe</div>
+          <div class="col">Yes</div>
+        </div>
+      </div></center>
+
       <br>
       <p>
         This doesn't bode well for America. A leader who isn't trustworthy won't follow through on promises. A leader who isn't diplomatic won't be able to keep up foreign relations. A leader who isn't intelligent won't be able to lead the country in the right socioeconomic direction. A leader who isn't experienced won't know how to deal with the higher responsibility required.
@@ -68,23 +75,32 @@
       <p>
         This app provides information about both of the candidates so that you can make the right choice. Choose one of the following candidates to learn about:
       </p>
-      <center><table style="width:25%">
-        <tr>
-          <td><center><a href="donald-trump.html"><img src="img/Donald Trump.jpg" height=200px><figcaption><b>Donald Trump</b></figcaption></a></center></td>
-          <td><center><a href="hillary-clinton.html"><img src="img/Hillary Clinton.jpg" height=200px><figcaption><b>Hillary Clinton</b></figcaption></a></center></td>
-        </tr>
-      </table></center>
+      <center><div style="width:25%">
+        <div class="row">
+          <div class="col"><center><a href="donald-trump.html"><img src="img/Donald Trump.jpg" height=200px><figcaption><b>Donald Trump</b></figcaption></a></center></div>
+          <div class="col"><center><a href="hillary-clinton.html"><img src="img/Hillary Clinton.jpg" height=200px><figcaption><b>Hillary Clinton</b></figcaption></a></center></div>
+        </div>
+      </div></center>
       <h2>Vote!</h2>
       <h4>Vote in a poll to see which candidate is doing better!</h4>
-      <center><div class="button-bar padded">
+      <center><div class="button-bar padded" style="width:50%">
         <a class="button button-assertive" ng-click="voteTrump()" id="voteTrump">Donald Trump</a>
-        <div id="cantVote"></div>
+        <div id="afterVote"></div>
         <a class="button button-positive" ng-click="voteClinton()" id="voteClinton">Hillary Clinton</a>
       </div></center>
-      <p>
-        <center><a href="sources.html" id="sources">Sources</a></center>
-      </p>
-    </ion-content>
-  </ion-pane>
+      <center><div class="card" id="vote-chart">
+        <div class="item item-divider">
+          Poll Results (vote to see results)
+        </div>
+        <div class="item item-text-wrap" id="vote-chart-div">
+          <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels" chart-legend="true" chart-series="series" chart-options="{showTooltips: false}"></canvas>
+        </div>
+      </div>
+    </center>
+    <p>
+      <center><a href="sources.html" id="sources">Sources</a></center>
+    </p>
+  </ion-content>
+</ion-pane>
 </body>
 </html>

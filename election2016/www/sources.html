@@ -3,29 +3,30 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-  <title>Election 2016 - Sources</title>
+  <title>Election 2016</title>
 
   <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+  <link href="css/angular-chart.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
+  
+  <!-- ionic/angularjs js -->
+  <script src="lib/ionic/js/ionic.bundle.js"></script>
 
-<!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-<link href="css/ionic.app.css" rel="stylesheet">
--->
+  <!-- cordova script (this will be a 404 during development) -->
+  <script src="cordova.js"></script>
 
-<!-- ionic/angularjs js -->
-<script src="lib/ionic/js/ionic.bundle.js"></script>
+  <!-- Firebase -->
+  <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
 
-<!-- cordova script (this will be a 404 during development) -->
-<script src="cordova.js"></script>
+  <!-- AngularFire -->
+  <script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
 
-<!-- Firebase -->
-<script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+  <!-- your app's js -->
+  <script src="js/app.js"></script>
 
-<!-- AngularFire -->
-<script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
-
-<!-- your app's js -->
-<script src="js/app.js"></script>
+  <!-- Chart.js and Angular Chart -->
+  <script src="js/Chart.min.js"></script>
+  <script src="js/angular-chart.min.js"></script>
 </head>
 <body ng-app="starter">
   <ion-pane>
@@ -35,11 +36,11 @@
     </ion-header-bar>
     <ion-content>
       <br>
-      <center><table style="width:80%">
-        <tr>
-          <td><b>"What does Donald Trump believe? Where the candidate stands on 10 issues"</b> - <a href="http://www.pbs.org/newshour/updates/donald-trump-believe-candidate-stands-10-issues/">http://www.pbs.org/newshour/updates/donald-trump-believe-candidate-stands-10-issues/</a></td>
-        </tr>
-      </table></center>
+      <center><div style="width:80%">
+        <div class="row">
+          <div class="col">"What does Donald Trump believe? Where the candidate stands on 10 issues"</b> - <a href="http://www.pbs.org/newshour/updates/donald-trump-believe-candidate-stands-10-issues/">http://www.pbs.org/newshour/updates/donald-trump-believe-candidate-stands-10-issues/</a></div>
+        </div>
+      </div></center>
     </ion-content>
   </ion-pane>
 </body>
